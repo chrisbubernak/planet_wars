@@ -1,5 +1,6 @@
 java -jar tools/PlayGame.jar maps/map1.txt 200 200 log.txt "python MyBot.py" "java -jar example_bots/DualBot.jar" | java -jar tools/ShowGame.jar
 
+python Runner.py "java -jar example_bots/DualBot.jar" "java -jar example_bots/DualBot.jar" 
 
 The files in this package are part of a starter package from the Google AI
 Challenge. The Google AI Challenge is an Artificial Intelligence programming

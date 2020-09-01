@@ -21,6 +21,8 @@ def runGame(player1, player2, map):
     remove(statusFileName)
     if 'ERROR' in lines[0]:
         exit(lines[0])
+    if len(lines[len(lines)-1].split()) == 1:
+        return 0
     if lines[len(lines)-1].split()[1] == '1':
         return 1
     else:
@@ -35,12 +37,15 @@ def main():
         return
     p1 = sys.argv[1]
     p2 = sys.argv[2]
-    p1wins = 0
+    p1wins = 0.0
     for g in range(1, 100):
-        if runGame(p1,p2,'maps/map'+str(g)+'.txt') == 1:
+        result = runGame(p1,p2,'maps/map'+str(g)+'.txt')
+        if  result == 1:
             p1wins += 1
-        else:
+        elif result == 2:
             print('lost on maps/map'+str(g)+'.txt')
+        else:
+            p1wins += 0.5
     print('P1 wins ' + str(100*p1wins/100.0) + '%')
 
 main()

@@ -19,6 +19,8 @@ def runGame(player1, player2, map):
     lines = status.readlines()
     status.close()
     remove(statusFileName)
+    if 'ERROR' in lines[0]:
+        exit(lines[0])
     if lines[len(lines)-1].split()[1] == '1':
         return 1
     else:

@@ -1,4 +1,5 @@
 const readline = require('readline');
+const {PlanetWars, Planet, Fleet} = require('./PlanetWars');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -11,7 +12,7 @@ rl.on('line', (input) => {
   if (input.length >=2 && input.startsWith('go')) {
     const pw = new PlanetWars(mapData);
     doTurn(pw);
-    pw.finishTurn();
+    finishTurn();
     mapData = '';
   }
   else {
@@ -19,16 +20,20 @@ rl.on('line', (input) => {
   }
 });
 
+// Bot implementation goes here.
 function doTurn(pw) {
-  // Implement Me!
+  
+  // Very dumb bot.
+  const planets = pw.neutralPlanets();
+  const myPlanets = pw.myPlanets();
+  let p = 0;
+  while (myPlanets[0].numShips >= 5 && p < planets.length) {
+    pw.issueOrder(myPlanets[0], planets[p], 5);
+    p++;
+    myPlanets[0].removeShips(5);
+  }
 }
 
-class PlanetWars {
-  constructor(pw) {
-    this.pw = pw;
-  }
-
-  finishTurn() {
-    console.log('go');
-  }
+function finishTurn() {
+  console.log('go');
 }

@@ -143,7 +143,13 @@ class PlanetWars {
     }
 
     issueOrder(srcPlanet, destPlanet, numShips) {
+        // Send the command to the engine.
         console.log(`${srcPlanet.planetId} ${destPlanet.planetId} ${numShips}`);
+
+        // Update game state so future calculations take this order into account.
+        srcPlanet.removeShips(numShips);
+        this.fleets.push(new Fleet(1, numShips, srcPlanet.planetId, destPlanet.planetId,
+            0 /** trip length */, 0 /** time remaining */));
     }
 
     isAlive(playerId) {
@@ -176,7 +182,7 @@ class PlanetWars {
                     return 0;
                 }
                 const planet = new Planet(planetId, Number(tokens[3]), Number(tokens[4]), Number(tokens[5]), 
-                Number(tokens[1], Number(tokens[2])));
+                Number(tokens[1]), Number(tokens[2]));
                 planetId++;
                 this.planets.push(planet);
             }

@@ -247,8 +247,8 @@ def GAPMV(plW,io2=_A):
 			I.append(D.Distance(C,L))
 			if F is _A:
 				if C==L:continue
-				O=[5,15,75,165,245,385,590,1300,3400,1000000];M=0
-				while C.NumShips()>=O[M]:G.append(MV(C,L,O[M],A));M+=1
+				st=int(ceil(A.Wos/15))
+				while C.NumShips()>=st:G.append(MV(C,L,st,A));st*=3
 	P=_B
 	for S in I:P+=S/len(I)
 	A.ApT=P;Q=_B

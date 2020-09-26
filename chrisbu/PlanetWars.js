@@ -1,16 +1,20 @@
-class Fleet {
-  constructor(owner, numShips, srcPlanet, destPlanet, totalTripLength, turnsRemaining) {
-      this.owner = owner;
-      this.numShips = numShips;
-      this.srcPlanet = srcPlanet;
-      this.destPlanet = destPlanet;
-      this.totalTripLength = totalTripLength;
-      this.turnsRemaining = turnsRemaining;
-  }
-}
-
-class Planet {
-    constructor(planetId, owner, numShips, growthRate, x, y) {
+"use strict";
+exports.__esModule = true;
+exports.PlanetWars = exports.Planet = exports.Fleet = void 0;
+var Fleet = /** @class */ (function () {
+    function Fleet(owner, numShips, srcPlanet, destPlanet, totalTripLength, turnsRemaining) {
+        this.owner = owner;
+        this.numShips = numShips;
+        this.srcPlanet = srcPlanet;
+        this.destPlanet = destPlanet;
+        this.totalTripLength = totalTripLength;
+        this.turnsRemaining = turnsRemaining;
+    }
+    return Fleet;
+}());
+exports.Fleet = Fleet;
+var Planet = /** @class */ (function () {
+    function Planet(planetId, owner, numShips, growthRate, x, y) {
         this.planetId = planetId;
         this.owner = owner;
         this.numShips = numShips;
@@ -18,162 +22,152 @@ class Planet {
         this.x = x;
         this.y = y;
     }
-
-    addShips(amount) {
+    Planet.prototype.addShips = function (amount) {
         this.numShips += amount;
-    }
-    
-    removeShips(amount) {
+    };
+    Planet.prototype.removeShips = function (amount) {
         this.numShips -= amount;
-    }
-}
-
-class PlanetWars {
-    constructor(gameState) {
+    };
+    return Planet;
+}());
+exports.Planet = Planet;
+var PlanetWars = /** @class */ (function () {
+    function PlanetWars(gameState) {
         this.planets = [];
         this.fleets = [];
         this.parseGameState(gameState);
     }
-
-    numPlanets() {
+    PlanetWars.prototype.numPlanets = function () {
         return this.planets.length;
-    }
-
-    getPlanet(planetId) {
+    };
+    PlanetWars.prototype.getPlanet = function (planetId) {
         return this.planets[planetId];
-    }
-
-    numFleets() {
+    };
+    PlanetWars.prototype.numFleets = function () {
         return this.fleets.length;
-    }
-
-    getFleet(fleetId) {
+    };
+    PlanetWars.prototype.getFleet = function (fleetId) {
         return this.fleets[fleetId];
-    }
-
-    planets() {
+    };
+    PlanetWars.prototype.allPlanets = function () {
         return this.planets;
-    }
-
-    myPlanets() {
-        const r = [];
-        for  (let p of this.planets) {
+    };
+    PlanetWars.prototype.myPlanets = function () {
+        var r = [];
+        for (var _i = 0, _a = this.planets; _i < _a.length; _i++) {
+            var p = _a[_i];
             if (p.owner != 1) {
                 continue;
             }
             r.push(p);
         }
         return r;
-    }
-
-    neutralPlanets() {
-        const r = [];
-        for  (let p of this.planets) {
+    };
+    PlanetWars.prototype.neutralPlanets = function () {
+        var r = [];
+        for (var _i = 0, _a = this.planets; _i < _a.length; _i++) {
+            var p = _a[_i];
             if (p.owner != 0) {
                 continue;
             }
             r.push(p);
         }
         return r;
-    }
-
-    enemyPlanets() {
-        const r = [];
-        for (let p of this.planets) {
+    };
+    PlanetWars.prototype.enemyPlanets = function () {
+        var r = [];
+        for (var _i = 0, _a = this.planets; _i < _a.length; _i++) {
+            var p = _a[_i];
             if (p.owner <= 1) {
                 continue;
             }
             r.push(p);
         }
         return r;
-    }
-
-    notMyPlanets() {
-        const r = [];
-        for  (let p of this.planets) {
+    };
+    PlanetWars.prototype.notMyPlanets = function () {
+        var r = [];
+        for (var _i = 0, _a = this.planets; _i < _a.length; _i++) {
+            var p = _a[_i];
             if (p.owner === 1) {
                 continue;
             }
             r.push(p);
         }
         return r;
-    }
-
-    fleets() {
+    };
+    PlanetWars.prototype.allFleets = function () {
         return this.fleets;
-    }
-
-    myFleets() {
-        const r = [];
-        for (let f of this.fleets) {
+    };
+    PlanetWars.prototype.myFleets = function () {
+        var r = [];
+        for (var _i = 0, _a = this.fleets; _i < _a.length; _i++) {
+            var f = _a[_i];
             if (f.owner !== 1) {
                 continue;
             }
             r.push(f);
         }
         return r;
-    }
-
-    enemyFleets() {
-        const r = [];
-        for (let f of this.fleets) {
+    };
+    PlanetWars.prototype.enemyFleets = function () {
+        var r = [];
+        for (var _i = 0, _a = this.fleets; _i < _a.length; _i++) {
+            var f = _a[_i];
             if (f.owner <= 1) {
                 continue;
             }
             r.push(f);
         }
         return r;
-    }
-
-    toString() {
-        let s = '';
-        for (let p of this.planets) {
-            s += `P ${p.x} ${p.y} ${p.owner} ${p.numShips} ${p.growthRate}`;
+    };
+    PlanetWars.prototype.toString = function () {
+        var s = '';
+        for (var _i = 0, _a = this.planets; _i < _a.length; _i++) {
+            var p = _a[_i];
+            s += "P " + p.x + " " + p.y + " " + p.owner + " " + p.numShips + " " + p.growthRate;
         }
-        for (let f of this.fleets) {
-            s += `F ${f.owner} ${f.numShips} ${f.srcPlanet} ${f.destPlanet} ${f.totalTripLength} ${f.turnsRemaining}`;
+        for (var _b = 0, _c = this.fleets; _b < _c.length; _b++) {
+            var f = _c[_b];
+            s += "F " + f.owner + " " + f.numShips + " " + f.srcPlanet + " " + f.destPlanet + " " + f.totalTripLength + " " + f.turnsRemaining;
         }
         return s;
-    }
-
-    distance(srcPlanet, destPlanet) {
-        const dx = srcPlanet.x - destPlanet.x;
-        const dy = srcPlanet.y - destPlanet.y;
+    };
+    PlanetWars.prototype.distance = function (srcPlanet, destPlanet) {
+        var dx = srcPlanet.x - destPlanet.x;
+        var dy = srcPlanet.y - destPlanet.y;
         return Number(Math.ceil(Math.sqrt(dx * dx + dy * dy)));
-    }
-
-    issueOrder(srcPlanet, destPlanet, numShips) {
+    };
+    PlanetWars.prototype.issueOrder = function (srcPlanet, destPlanet, numShips) {
         // Send the command to the engine.
-        console.log(`${srcPlanet.planetId} ${destPlanet.planetId} ${numShips}`);
-
+        console.log(srcPlanet.planetId + " " + destPlanet.planetId + " " + numShips);
         // Update game state so future calculations take this order into account.
         srcPlanet.removeShips(numShips);
-        this.fleets.push(new Fleet(1, numShips, srcPlanet.planetId, destPlanet.planetId,
-            0 /** trip length */, 0 /** time remaining */));
-    }
-
-    isAlive(playerId) {
-        for (let p of this.planets) {
-            if (p.Owner === playerId) {
+        this.fleets.push(new Fleet(1, numShips, srcPlanet.planetId, destPlanet.planetId, this.distance(srcPlanet, destPlanet), this.distance(srcPlanet, destPlanet)));
+    };
+    PlanetWars.prototype.isAlive = function (playerId) {
+        for (var _i = 0, _a = this.planets; _i < _a.length; _i++) {
+            var p = _a[_i];
+            if (p.owner === playerId) {
                 return true;
             }
         }
-        for (let f of this.fleets) {
+        for (var _b = 0, _c = this.fleets; _b < _c.length; _b++) {
+            var f = _c[_b];
             if (f.owner === playerId) {
                 return true;
             }
         }
         return false;
-    }
-
-    parseGameState(s) {
-        const lines = s.split('\n');
-        let planetId = 0;
-        
-        for (let line of lines) {
+    };
+    PlanetWars.prototype.parseGameState = function (s) {
+        var lines = s.split('\n');
+        var planetId = 0;
+        for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
+            var line = lines_1[_i];
             // Remove comments
             line = line.split('#')[0];
-            const tokens = line.split(' ');
+            var tokens = line.split(' ');
             if (tokens.length === 1) {
                 continue;
             }
@@ -181,8 +175,7 @@ class PlanetWars {
                 if (tokens.length !== 6) {
                     return 0;
                 }
-                const planet = new Planet(planetId, Number(tokens[3]), Number(tokens[4]), Number(tokens[5]), 
-                Number(tokens[1]), Number(tokens[2]));
+                var planet = new Planet(planetId, Number(tokens[3]), Number(tokens[4]), Number(tokens[5]), Number(tokens[1]), Number(tokens[2]));
                 planetId++;
                 this.planets.push(planet);
             }
@@ -190,8 +183,7 @@ class PlanetWars {
                 if (tokens.length !== 7) {
                     return 0;
                 }
-                const fleet = new Fleet(Number(tokens[1]), Number(tokens[2]), Number(tokens[3]),
-                    Number(tokens[4]), Number(tokens[5]), Number(tokens[6]));
+                var fleet = new Fleet(Number(tokens[1]), Number(tokens[2]), Number(tokens[3]), Number(tokens[4]), Number(tokens[5]), Number(tokens[6]));
                 this.fleets.push(fleet);
             }
             else {
@@ -199,11 +191,10 @@ class PlanetWars {
             }
         }
         return 1;
-    }
-
-    finishTurn() {
+    };
+    PlanetWars.prototype.finishTurn = function () {
         console.log('go');
-    }
-}
-
-module.exports = {PlanetWars, Planet, Fleet};
+    };
+    return PlanetWars;
+}());
+exports.PlanetWars = PlanetWars;

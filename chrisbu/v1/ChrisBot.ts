@@ -122,11 +122,3 @@ function doTurn(pw: PlanetWars) {
     }
   });
 }
-
-// Helper to see if I have a fleet in flight to a given planet.
-function targeting(pw: PlanetWars, planet: Planet) {
-  return pw.myFleets().some((f: Fleet) => {
-    return f.destPlanet === planet.planetId;
-  });
-}
-

@@ -1,0 +1,103 @@
+95% vs BullyBot
+79% vs DualBot
+99% vs ExpandBot
+94% vs ProspectorBot
+59% vs RageBot
+98% vs RandomBot
+
+======================
+
+BullyBot
+
+lost on maps/map30.txt
+lost on maps/map33.txt
+lost on maps/map38.txt
+lost on maps/map44.txt
+
+======================
+
+DualBot
+
+lost on maps/map9.txt
+lost on maps/map10.txt
+lost on maps/map26.txt
+lost on maps/map29.txt
+lost on maps/map30.txt
+lost on maps/map33.txt
+lost on maps/map38.txt
+lost on maps/map43.txt
+lost on maps/map44.txt
+lost on maps/map48.txt
+lost on maps/map50.txt
+lost on maps/map58.txt
+lost on maps/map65.txt
+lost on maps/map75.txt
+lost on maps/map80.txt
+lost on maps/map82.txt
+lost on maps/map86.txt
+lost on maps/map87.txt
+lost on maps/map96.txt
+lost on maps/map99.txt
+
+======================
+
+ExpandBot
+
+======================
+
+ProspectorBot
+
+lost on maps/map11.txt
+lost on maps/map30.txt
+lost on maps/map33.txt
+lost on maps/map38.txt
+lost on maps/map96.txt
+
+======================
+
+RageBot
+
+lost on maps/map3.txt
+lost on maps/map7.txt
+lost on maps/map16.txt
+lost on maps/map19.txt
+lost on maps/map20.txt
+lost on maps/map21.txt
+lost on maps/map22.txt
+lost on maps/map29.txt
+lost on maps/map30.txt
+lost on maps/map31.txt
+lost on maps/map33.txt
+lost on maps/map36.txt
+lost on maps/map38.txt
+lost on maps/map39.txt
+lost on maps/map40.txt
+lost on maps/map41.txt
+lost on maps/map42.txt
+lost on maps/map43.txt
+lost on maps/map44.txt
+lost on maps/map46.txt
+lost on maps/map47.txt
+lost on maps/map54.txt
+lost on maps/map55.txt
+lost on maps/map56.txt
+lost on maps/map57.txt
+lost on maps/map61.txt
+lost on maps/map70.txt
+lost on maps/map76.txt
+lost on maps/map77.txt
+lost on maps/map79.txt
+lost on maps/map80.txt
+lost on maps/map83.txt
+lost on maps/map91.txt
+lost on maps/map94.txt
+lost on maps/map95.txt
+lost on maps/map96.txt
+lost on maps/map97.txt
+lost on maps/map98.txt
+
+======================
+
+RandomBot
+
+lost on maps/map30.txt

@@ -2,5 +2,7 @@
 .DS_Store
 log.txt
 chrisbu/node_modules/
+node_modules/
 ryansturm/out/
 chrisbu/package-lock.json
+package-lock.json

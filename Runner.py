@@ -42,10 +42,12 @@ def main():
         result = runGame(p1,p2,'maps/map'+str(g)+'.txt')
         if result  == 1:
             p1wins += 1
+            print('won on maps/map'+str(g)+'.txt')
         elif result == 2:
             print('lost on maps/map'+str(g)+'.txt')
         else:
           p1wins += 0.5
+          print('draw on maps/map'+str(g)+'.txt')
     print('P1 wins ' + str(100*p1wins/100.0) + '%')
 
 main()
